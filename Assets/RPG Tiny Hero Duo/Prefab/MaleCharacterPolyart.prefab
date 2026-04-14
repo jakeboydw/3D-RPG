@@ -1636,7 +1636,7 @@ Rigidbody:
   serializedVersion: 5
   m_Mass: 1
   m_LinearDamping: 0
-  m_AngularDamping: 0.5
+  m_AngularDamping: 3
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -1660,7 +1660,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5352958571798197664}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c7dacc9205c597747b14c561face7bfd, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1672,8 +1672,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.4
-  m_Height: 1.5
+  m_Radius: 0.35
+  m_Height: 1.4
   m_Direction: 1
   m_Center: {x: 0, y: 0.7, z: 0}
 --- !u!114 &8517950076101262968
@@ -1690,8 +1690,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 5
   rotationSpeed: 10
-  jumpForce: 7
-  gravityMultiplier: 2.5
+  jumpForce: 4
+  gravityMultiplier: 3
   groundCheck: {fileID: 21446715148312312}
   groundDistance: 0.3
   groundLayer:

@@ -101,9 +101,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!anim) return;
 
-        Vector3 horizontalVelocity = rb.linearVelocity;
-        horizontalVelocity.y = 0f;
-        float currentSpeed = horizontalVelocity.magnitude;
+        float currentSpeed = moveInput.magnitude;
 
         if (moveInput.magnitude < 0.1f)
         {
