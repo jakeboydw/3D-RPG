@@ -75,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundLayer);
     }
 
-    public void OnJump(InputValue value)
+    public void OnJump()
     {
         if (isGrounded)
         {
