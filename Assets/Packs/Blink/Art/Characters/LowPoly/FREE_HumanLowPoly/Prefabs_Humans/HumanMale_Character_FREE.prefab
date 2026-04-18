@@ -1003,8 +1003,8 @@ GameObject:
   - component: {fileID: 4540229000190281644}
   - component: {fileID: 5186890699111313122}
   - component: {fileID: 5914537990926845199}
-  - component: {fileID: 3301151469399523914}
-  - component: {fileID: 1623605770157661532}
+  - component: {fileID: 3487247958077543104}
+  - component: {fileID: 492781689152566912}
   m_Layer: 6
   m_Name: HumanMale_Character_FREE
   m_TagString: Untagged
@@ -1102,7 +1102,7 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
---- !u!114 &3301151469399523914
+--- !u!114 &3487247958077543104
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1111,11 +1111,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1782702501690864755}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 641bc6b5847207343b7a65e69f6d354f, type: 3}
+  m_Script: {fileID: 11500000, guid: baad98893701469499e90a58ac4084f7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RequestGiver
-  interact: {fileID: 1623605770157661532}
---- !u!114 &1623605770157661532
+  m_EditorClassIdentifier: Assembly-CSharp::QuestGiver
+  eventCenter: {fileID: 492781689152566912}
+--- !u!114 &492781689152566912
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1124,9 +1124,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1782702501690864755}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e4d5becd2217d14aa7ae729bba72930, type: 3}
+  m_Script: {fileID: 11500000, guid: 478197290cd1cf94a90fbf9e17e6b517, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Interact
+  m_EditorClassIdentifier: Assembly-CSharp::EventCenter
 --- !u!1 &1789272960074739661
 GameObject:
   m_ObjectHideFlags: 0
