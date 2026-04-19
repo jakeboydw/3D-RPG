@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuestGiver : MonoBehaviour
+public class QuestGiver : MonoBehaviour, IInteractable
 {
-    public EventCenter eventCenter;
     public List<Quest> quests;
 
     private int availableIndex = 0;
@@ -14,27 +13,19 @@ public class QuestGiver : MonoBehaviour
         NextQuest();
     }
 
-    private void OnEnable()
+    public void Interact(PlayerAction player)
     {
-        if (eventCenter)
-        {
-            eventCenter.Interact += GiveQuest;
-        }
-    }
 
-    private void OnDisable()
-    {
-        if (eventCenter)
-        {
-            eventCenter.Interact -= GiveQuest;
-        }
     }
 
     private void GiveQuest()
     {
-        QuestManager.Instance.AcceptQuest(availableQuest);
-        availableIndex++;
-        NextQuest();
+        if (availableQuest)
+        {
+            QuestManager.Instance.AcceptQuest(availableQuest);
+            availableIndex++;
+            NextQuest();
+        }
     }
 
     private void NextQuest()

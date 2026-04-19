@@ -1,24 +1,12 @@
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public class Item : MonoBehaviour, IInteractable
 {
     public string itemID;
-    public EventCenter eventCenter;
 
-    private void OnEnable()
+    public void Interact(PlayerAction player)
     {
-        if (eventCenter)
-        {
-            eventCenter.Interact += AddToInventory;
-        }
-    }
-
-    private void OnDisable()
-    {
-        if (eventCenter)
-        {
-            eventCenter.Interact -= AddToInventory;
-        }
+        AddToInventory();
     }
 
     private void AddToInventory()

@@ -25,13 +25,13 @@ public class PlayerAction : MonoBehaviour
             }
         }
 
-        //只有距离玩家最近且可以互动的物体才会调用事件
+        //只有距离玩家最近的物体才可以互动
         if (closestObject)
         {
-            EventCenter eventCenter = closestObject.GetComponent<EventCenter>();
-            if (eventCenter)
+            var interactable = closestObject.GetComponent<IInteractable>();
+            if (interactable != null)
             {
-                eventCenter.CallInteract();
+                interactable.Interact(this);
             }
         }
     }

@@ -1004,7 +1004,6 @@ GameObject:
   - component: {fileID: 5186890699111313122}
   - component: {fileID: 5914537990926845199}
   - component: {fileID: 3487247958077543104}
-  - component: {fileID: 492781689152566912}
   m_Layer: 6
   m_Name: HumanMale_Character_FREE
   m_TagString: Untagged
@@ -1114,19 +1113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baad98893701469499e90a58ac4084f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestGiver
-  eventCenter: {fileID: 492781689152566912}
---- !u!114 &492781689152566912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1782702501690864755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 478197290cd1cf94a90fbf9e17e6b517, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EventCenter
+  quests: []
 --- !u!1 &1789272960074739661
 GameObject:
   m_ObjectHideFlags: 0

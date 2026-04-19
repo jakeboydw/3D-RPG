@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8408109709729633621}
   - component: {fileID: 417134569252294082}
   - component: {fileID: 9156651866859322827}
-  - component: {fileID: 6416452965007698417}
   m_Layer: 6
   m_Name: PP_Theme_01_Axe_Two_Handed_002
   m_TagString: Untagged
@@ -128,16 +127,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item
   itemID: Axe
-  eventCenter: {fileID: 6416452965007698417}
---- !u!114 &6416452965007698417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8047764633477264512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 478197290cd1cf94a90fbf9e17e6b517, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EventCenter

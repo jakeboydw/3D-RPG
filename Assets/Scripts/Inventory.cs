@@ -6,8 +6,6 @@ public class Inventory : MonoBehaviour
     private static Inventory instance;
     public static Inventory Instance => instance;
 
-    public EventCenter eventCenter;
-
     private List<Item> items = new List<Item>();
 
     private void Awake()
@@ -26,7 +24,11 @@ public class Inventory : MonoBehaviour
         items.Add(item);
 
         //只有当物品入库，才触发信号
-        eventCenter.CallGartherItem(item.itemID);
+        EventCenter.Publish(new GartherItemEvent
+        {
+            itemID = item.itemID,
+            amount = 1
+        });
     }
 
     public void Remove(Item item)

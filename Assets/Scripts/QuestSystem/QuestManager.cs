@@ -27,11 +27,41 @@ public class QuestManager : MonoBehaviour
         {
             questID = quest.questName,
             state = QuestState.InProgress,
-            steps = quest.steps,
+            steps = new List<QuestStep>(quest.steps),
             currentStepIndex = 0,
             currentStepAmount = 0
         };
 
         activeQuests.Add(questStatus);
+
+        questStatus.steps[0].OnStart(questStatus);
+    }
+
+    public void AdvanceStep(QuestStatus status)
+    {
+        QuestStep currentStep = status.steps[status.currentStepIndex];
+        currentStep.OnFinish();
+
+        status.currentStepIndex++;
+        status.currentStepAmount = 0;
+
+        if (status.currentStepIndex >= status.steps.Count)
+        {
+            CompleteQuest(status);
+            return;
+        }
+
+        QuestStep nextStep = status.steps[status.currentStepIndex];
+        nextStep.OnStart(status);
+    }
+
+    private void CompleteQuest(QuestStatus status)
+    {
+        status.state = QuestState.Completed;
+
+        activeQuests.Remove(status);
+        completedQuests.Add(status);
+
+        Debug.Log("任务完成：" + status.questID);
     }
 }
