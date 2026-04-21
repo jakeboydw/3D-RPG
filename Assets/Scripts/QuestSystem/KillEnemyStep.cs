@@ -19,11 +19,18 @@ public class KillEnemyStep : QuestStep
         EventCenter.Unsubscribe<KillEnemyEvent>(OnKillEnemy);
     }
 
+    public override string GetProgressText()
+    {
+        return $"{stepDescription} ({status.currentStepAmount}/{totalAmount})";
+    }
+
     private void OnKillEnemy(KillEnemyEvent e)
     {
         if (e.enemyID != enemyID) return;
 
         status.currentStepAmount++;
+        QuestManager.Instance.trackerUI.Refresh();
+
         if (status.currentStepAmount >= totalAmount)
         {
             QuestManager.Instance.AdvanceStep(status);

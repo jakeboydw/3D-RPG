@@ -7,4 +7,6 @@ public abstract class QuestStep
 
     public abstract void OnStart(QuestStatus questStatus);
     public abstract void OnFinish();
+
+    public abstract string GetProgressText();
 }

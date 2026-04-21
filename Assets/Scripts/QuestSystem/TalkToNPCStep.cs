@@ -18,6 +18,11 @@ public class TalkToNPCStep : QuestStep
         EventCenter.Unsubscribe<TalkToNPCEvent>(OnTalk);
     }
 
+    public override string GetProgressText()
+    {
+        return stepDescription;
+    }
+
     private void OnTalk(TalkToNPCEvent e)
     {
         if (e.npcID != npcID) return;

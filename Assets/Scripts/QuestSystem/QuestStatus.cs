@@ -5,6 +5,7 @@ using UnityEngine;
 public class QuestStatus
 {
     public string questID;
+    public string questName;
     public QuestState state;
     public List<QuestStep> steps;
     public int currentStepIndex;

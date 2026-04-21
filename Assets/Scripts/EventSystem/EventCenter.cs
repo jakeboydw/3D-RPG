@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public static class EventCenter
 {
+    //事件 ：回调列表(支持多播)
     private static Dictionary<Type, Action<object>> eventDict = new();
 
     //缓存包装后的委托，确保取消订阅时回调函数的唯一性

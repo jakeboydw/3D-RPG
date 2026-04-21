@@ -5,6 +5,7 @@ using UnityEngine;
 public class Quest : ScriptableObject
 {
     [Header("基础信息")]
+    public string questID; //仅用于区分不同任务
     public string questName;
     [TextArea]
     public string description;
