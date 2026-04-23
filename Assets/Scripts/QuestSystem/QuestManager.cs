@@ -36,11 +36,14 @@ public class QuestManager : MonoBehaviour
         };
 
         activeQuests.Add(questStatus);
-        selectedQuest = questStatus;
+        if (selectedQuest == null)
+        {
+            selectedQuest = questStatus;
+        }
 
         questStatus.steps[0].OnStart(questStatus);
 
-        trackerUI.Refresh();
+        RefreshUI();
     }
 
     public void AdvanceStep(QuestStatus status)
@@ -60,10 +63,7 @@ public class QuestManager : MonoBehaviour
         QuestStep nextStep = status.steps[status.currentStepIndex];
         nextStep.OnStart(status);
 
-        if (selectedQuest == status)
-        {
-            trackerUI.Refresh();
-        }
+        RefreshUI();
     }
 
     private void CompleteQuest(QuestStatus status)
@@ -74,5 +74,20 @@ public class QuestManager : MonoBehaviour
         completedQuests.Add(status);
 
         Debug.Log("任务完成：" + status.questID);
+
+        if (selectedQuest == status)
+        {
+            selectedQuest = activeQuests.Count > 0 ? activeQuests[activeQuests.Count - 1] : null; //自动设置为最近接受的任务
+        }
+
+        RefreshUI();
+    }
+
+    public void RefreshUI()
+    {
+        if (trackerUI != null)
+        {
+            trackerUI.Refresh();
+        }
     }
 }

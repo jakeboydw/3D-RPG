@@ -29,7 +29,7 @@ public class GartherItemStep : QuestStep
         if (e.itemID != itemID) return;
 
         status.currentStepAmount += e.amount;
-        QuestManager.Instance.trackerUI.Refresh();
+        QuestManager.Instance.RefreshUI();
 
         if (status.currentStepAmount >= totalAmount)
         {

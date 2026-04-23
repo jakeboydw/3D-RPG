@@ -10,8 +10,8 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager Instance => instance;
 
     public GameObject dialogueBox;
-    public TextMeshPro speakerText;
-    public TextMeshPro contentText;
+    public TextMeshProUGUI speakerText;
+    public TextMeshProUGUI contentText;
 
     private Queue<string> sentences = new Queue<string>();
     private Action onDialogueEnd;

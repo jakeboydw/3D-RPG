@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 156103001}
   - component: {fileID: 156103003}
   - component: {fileID: 156103002}
+  - component: {fileID: 156103004}
   m_Layer: 5
   m_Name: QuestTrackerUI
   m_TagString: Untagged
@@ -259,6 +260,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156103000}
   m_CullTransparentMesh: 1
+--- !u!114 &156103004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156103000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb18fe682a030943b95a217f0345f5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestTrackerUI
+  questName: {fileID: 1520241723}
+  questDescription: {fileID: 2144814741}
 --- !u!1001 &187324027
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1289,6 +1304,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1021792130}
+  - component: {fileID: 1021792131}
   m_Layer: 0
   m_Name: InputManager
   m_TagString: Untagged
@@ -1311,6 +1327,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1021792131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021792129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf389023e9ebf834986f49d8626cec45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InputManager
+  actions: {fileID: -944628639613478452, guid: c4836d2813e332747a86cccc494cfb10, type: 3}
 --- !u!1001 &1047187224
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1382,6 +1411,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1090194426}
+  - component: {fileID: 1090194427}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -1404,6 +1434,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1090194427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090194425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2985a4b3f261ee64eb5d43042a79f673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
+  dialogueBox: {fileID: 1306505772}
+  speakerText: {fileID: 1623053183}
+  contentText: {fileID: 1931721804}
 --- !u!1001 &1160260182
 PrefabInstance:
   m_ObjectHideFlags: 0

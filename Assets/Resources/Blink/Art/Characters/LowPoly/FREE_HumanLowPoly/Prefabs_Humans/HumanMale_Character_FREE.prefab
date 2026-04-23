@@ -1113,7 +1113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baad98893701469499e90a58ac4084f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestGiver
+  npcID: "\u6751\u6C11"
   quests: []
+  normalDialogue: {fileID: 0}
 --- !u!1 &1789272960074739661
 GameObject:
   m_ObjectHideFlags: 0

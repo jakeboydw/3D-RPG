@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class QuestTrackerUI : MonoBehaviour
 {
-    public TextMeshPro questName;
-    public TextMeshPro questDescription;
+    public TextMeshProUGUI questName;
+    public TextMeshProUGUI questDescription;
 
     private void Start()
     {

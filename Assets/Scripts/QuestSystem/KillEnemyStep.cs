@@ -29,7 +29,7 @@ public class KillEnemyStep : QuestStep
         if (e.enemyID != enemyID) return;
 
         status.currentStepAmount++;
-        QuestManager.Instance.trackerUI.Refresh();
+        QuestManager.Instance.RefreshUI();
 
         if (status.currentStepAmount >= totalAmount)
         {
