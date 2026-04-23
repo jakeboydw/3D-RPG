@@ -4,7 +4,7 @@ public class Item : MonoBehaviour, IInteractable
 {
     public string itemID;
 
-    public void Interact(PlayerAction player)
+    public void Interact()
     {
         AddToInventory();
     }

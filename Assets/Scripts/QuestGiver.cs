@@ -3,7 +3,10 @@ using UnityEngine;
 
 public class QuestGiver : MonoBehaviour, IInteractable
 {
+    public string npcID;
     public List<Quest> quests;
+
+    public DialogueData normalDialogue;
 
     private int availableIndex = 0;
     private Quest availableQuest;
@@ -13,9 +16,36 @@ public class QuestGiver : MonoBehaviour, IInteractable
         NextQuest();
     }
 
-    public void Interact(PlayerAction player)
+    public void Interact()
     {
+        EventCenter.Publish(new TalkToNPCEvent
+        {
+            npcID = this.npcID,
+        });
 
+        if (QuestManager.Instance.selectedQuest != null)
+        {
+            QuestStatus quest = QuestManager.Instance.selectedQuest;
+            QuestStep step = quest.steps[quest.currentStepIndex];
+
+            if (step is TalkToNPCStep talkStep && talkStep.npcID == this.npcID)
+            {
+                DialogueManager.Instance.StartDialogue(talkStep.stepDialogue);
+                return;
+            }
+
+            DialogueManager.Instance.StartDialogue(normalDialogue);
+            return;
+        }
+
+        if (availableQuest != null)
+        {
+            DialogueManager.Instance.StartDialogue(availableQuest.giveQuestDialogue, GiveQuest);
+        }
+        else
+        {
+            DialogueManager.Instance.StartDialogue(normalDialogue);
+        }
     }
 
     private void GiveQuest()

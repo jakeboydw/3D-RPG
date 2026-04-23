@@ -4,6 +4,7 @@ using UnityEngine;
 public class TalkToNPCStep : QuestStep
 {
     public string npcID;
+    public DialogueData stepDialogue;
 
     private QuestStatus status;
 
@@ -27,6 +28,7 @@ public class TalkToNPCStep : QuestStep
     {
         if (e.npcID != npcID) return;
 
+        //QuestStep只负责推进，不负责表现，由NPC(QuestGiver)展示stepDialogue，实现任务和对话的解耦
         QuestManager.Instance.AdvanceStep(status);
     }
 }

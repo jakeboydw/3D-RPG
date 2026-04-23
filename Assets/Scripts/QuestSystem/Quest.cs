@@ -12,4 +12,7 @@ public class Quest : ScriptableObject
 
     [Header("任务步骤"), SerializeReference]
     public List<QuestStep> steps = new List<QuestStep>();
+
+    [Header("NPC对话")]
+    public DialogueData giveQuestDialogue;
 }

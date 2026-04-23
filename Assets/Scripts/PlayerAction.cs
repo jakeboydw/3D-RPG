@@ -31,8 +31,16 @@ public class PlayerAction : MonoBehaviour
             var interactable = closestObject.GetComponent<IInteractable>();
             if (interactable != null)
             {
-                interactable.Interact(this);
+                interactable.Interact();
             }
+        }
+    }
+
+    public void OnConfirm()
+    {
+        if (DialogueManager.Instance != null)
+        {
+            DialogueManager.Instance.ShowNext();
         }
     }
 }
