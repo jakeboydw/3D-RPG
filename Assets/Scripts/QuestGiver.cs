@@ -18,19 +18,18 @@ public class QuestGiver : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        EventCenter.Publish(new TalkToNPCEvent
-        {
-            npcID = this.npcID,
-        });
+        QuestStatus quest = QuestManager.Instance.selectedQuest;
 
-        if (QuestManager.Instance.selectedQuest != null)
+        if (quest != null)
         {
-            QuestStatus quest = QuestManager.Instance.selectedQuest;
             QuestStep step = quest.steps[quest.currentStepIndex];
 
             if (step is TalkToNPCStep talkStep && talkStep.npcID == this.npcID)
             {
-                DialogueManager.Instance.StartDialogue(talkStep.stepDialogue);
+                DialogueManager.Instance.StartDialogue(talkStep.stepDialogue, () => EventCenter.Publish(new TalkToNPCEvent
+                {
+                    npcID = this.npcID,
+                }));
                 return;
             }
 

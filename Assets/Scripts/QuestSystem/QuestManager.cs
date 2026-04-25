@@ -8,6 +8,8 @@ public class QuestManager : MonoBehaviour
 
     public List<QuestStatus> activeQuests = new List<QuestStatus>();
     public List<QuestStatus> completedQuests = new List<QuestStatus>();
+
+    [System.NonSerialized]
     public QuestStatus selectedQuest; //当前追踪的任务
 
     public QuestTrackerUI trackerUI;
@@ -30,7 +32,7 @@ public class QuestManager : MonoBehaviour
             questID = quest.questID,
             questName = quest.questName,
             state = QuestState.InProgress,
-            steps = new List<QuestStep>(quest.steps),
+            steps = quest.steps,
             currentStepIndex = 0,
             currentStepAmount = 0
         };
@@ -72,8 +74,6 @@ public class QuestManager : MonoBehaviour
 
         activeQuests.Remove(status);
         completedQuests.Add(status);
-
-        Debug.Log("任务完成：" + status.questID);
 
         if (selectedQuest == status)
         {

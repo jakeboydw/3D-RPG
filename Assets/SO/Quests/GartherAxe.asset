@@ -15,8 +15,22 @@ MonoBehaviour:
   questID: q001
   questName: "\u627E\u5230\u6751\u6C11\u7684\u65A7\u5934"
   description: "\u6751\u6C11\u7684\u65A7\u5934\u4E22\u4E86\uFF0C\u5E2E\u4ED6\u5728\u6751\u5B50\u91CC\u627E\u4E00\u627E\u5427\u3002"
-  steps: []
+  steps:
+  - rid: 1858768933904449536
+  - rid: 1858768933904449537
   giveQuestDialogue: {fileID: 11400000, guid: 528ff0feed6d27e4b8f8e990a3288871, type: 2}
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 1858768933904449536
+      type: {class: GartherItemStep, ns: , asm: Assembly-CSharp}
+      data:
+        stepDescription: "\u5728\u6751\u5B50\u91CC\u627E\u5230\u6751\u6C11\u7684\u65A7\u5934\u3002"
+        itemID: Axe
+        totalAmount: 1
+    - rid: 1858768933904449537
+      type: {class: TalkToNPCStep, ns: , asm: Assembly-CSharp}
+      data:
+        stepDescription: "\u56DE\u53BB\u548C\u6751\u6C11\u5BF9\u8BDD\u3002"
+        npcID: "\u6751\u6C11"
+        stepDialogue: {fileID: 11400000, guid: 4cae82bee61832a45818d79706adfaf4, type: 2}

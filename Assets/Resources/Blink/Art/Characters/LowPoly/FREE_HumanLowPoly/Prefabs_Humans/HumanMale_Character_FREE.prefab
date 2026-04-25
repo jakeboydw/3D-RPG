@@ -1114,8 +1114,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestGiver
   npcID: "\u6751\u6C11"
-  quests: []
-  normalDialogue: {fileID: 0}
+  quests:
+  - {fileID: 11400000, guid: 9cb14be3fa4f9484f89fcf5218576001, type: 2}
+  normalDialogue: {fileID: 11400000, guid: 53004cb23022b5b4c85510bd5279a42e, type: 2}
 --- !u!1 &1789272960074739661
 GameObject:
   m_ObjectHideFlags: 0
