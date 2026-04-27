@@ -11,7 +11,7 @@ public class Item : MonoBehaviour, IInteractable
 
     private void AddToInventory()
     {
-        Inventory.Instance.Add(this);
-        Destroy(this.gameObject);
+        InventoryController.Instance.AddItem(itemID, 1);
+        Destroy(gameObject);
     }
 }

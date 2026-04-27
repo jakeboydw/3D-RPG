@@ -15,6 +15,7 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> sentences = new Queue<string>();
     private Action onDialogueEnd;
+    private bool isTalking = false;
 
     private void Awake()
     {
@@ -31,6 +32,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(DialogueData data, Action onEnd = null)
     {
+        isTalking = true;
         dialogueBox.SetActive(true);
 
         InputManager.Instance.EnableUIInput();
@@ -61,10 +63,16 @@ public class DialogueManager : MonoBehaviour
 
     private void EndDialogue()
     {
+        isTalking = false;
         dialogueBox.SetActive(false);
 
         InputManager.Instance.EnablePlayerInput();
 
         onDialogueEnd?.Invoke();
+    }
+
+    public bool IsTalking()
+    {
+        return isTalking;
     }
 }

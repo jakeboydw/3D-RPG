@@ -36,11 +36,11 @@ public class PlayerAction : MonoBehaviour
         }
     }
 
-    public void OnConfirm()
+    public void OnToggleInventory()
     {
-        if (DialogueManager.Instance != null)
+        if (InventoryController.Instance)
         {
-            DialogueManager.Instance.ShowNext();
+            InventoryController.Instance.Toggle();
         }
     }
 }
