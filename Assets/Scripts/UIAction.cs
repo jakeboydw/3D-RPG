@@ -21,14 +21,18 @@ public class UIAction : MonoBehaviour
     public void OnNavigate(InputValue value)
     {
         Vector2 dir = value.Get<Vector2>();
-        InventoryController.Instance.Navigate(dir);
+        if (InventoryController.Instance)
+        {
+            InventoryController.Instance.Navigate(dir);
+            return;
+        }
     }
 
     public void OnCancel()
     {
         if (InventoryController.Instance && InventoryController.Instance.IsOpen())
         {
-            InventoryController.Instance.Close();
+            InventoryController.Instance.Cancel();
             return;
         }
     }

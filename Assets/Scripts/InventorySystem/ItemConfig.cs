@@ -8,4 +8,7 @@ public class ItemConfig : ScriptableObject
     public Sprite icon;
     [TextArea]
     public string description;
+
+    public bool canUse;
+    public bool canDrop;
 }

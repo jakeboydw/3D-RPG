@@ -11,16 +11,17 @@ public class InventorySlot : MonoBehaviour
     public void SetItem(ItemData item)
     {
         data = item;
-
+        
         if (data == null)
         {
             icon.enabled = false;
+            return;
         }
-        else
-        {
-            icon.enabled = true;
-            //set icon
-        }
+
+        ItemConfig config = ItemDatabase.Instance.Get(data.itemID);
+
+        icon.enabled = true;
+        icon.sprite = config.icon;
     }
 
     public ItemData GetItem()

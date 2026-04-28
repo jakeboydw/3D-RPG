@@ -27,6 +27,11 @@ public class InventoryController : MonoBehaviour
         model = new InventoryModel();
     }
 
+    private void Start()
+    {
+        Close();
+    }
+
     private void OnEnable()
     {
         model.onChanged += RefreshView;
@@ -59,6 +64,17 @@ public class InventoryController : MonoBehaviour
     {
         if (isOpen) Close();
         else Open();
+    }
+
+    public void Cancel()
+    {
+        if (isActionPanelOpen)
+        {
+            ActionPanel.Instance.Close();
+            return;
+        }
+
+        Close();
     }
 
     public void Open()
@@ -108,7 +124,7 @@ public class InventoryController : MonoBehaviour
 
     public void Select(int index)
     {
-        currentIndex = Mathf.Clamp(index, 0, view.slots.Count - 1);
+        currentIndex = view.ClampIndex(index);
         view.SetSelected(currentIndex);
 
         UpdateDescription();
@@ -118,16 +134,28 @@ public class InventoryController : MonoBehaviour
     {
         if (!isOpen) return;
 
+        if (isActionPanelOpen)
+        {
+            ActionPanel.Instance.Navigate(dir);
+            return;
+        }
+
         int index = currentIndex;
+
         if (dir.x > 0) index++;
         if (dir.x < 0) index--;
-        if (dir.y > 0) index -= column;
-        if (dir.y < 0) index += column;
+        if (dir.y > 0 && index >= column) index -= column;
+        if (dir.y < 0 && index < view.slotCount - column) index += column;
 
         Select(index);
     }
 
     // === 交互 ===
+
+    public void SetActionPanelState(bool state)
+    {
+        isActionPanelOpen = state;
+    }
 
     public void Confirm()
     {
@@ -136,12 +164,15 @@ public class InventoryController : MonoBehaviour
         //如果已经打开操作面板，直接执行操作
         if (isActionPanelOpen)
         {
-            //执行操作
+            ActionPanel.Instance.Confirm();
+            return;
         }
 
         //否则打开面板
         ItemData item = GetCurrentItem();
         if (item == null) return;
+
+        ActionPanel.Instance.Open(item, view.GetSlotTransform(currentIndex));
     }
 
     public void UseItem(ItemData item)
