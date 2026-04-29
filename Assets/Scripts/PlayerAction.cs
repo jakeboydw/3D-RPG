@@ -35,12 +35,4 @@ public class PlayerAction : MonoBehaviour
             }
         }
     }
-
-    public void OnToggleInventory()
-    {
-        if (InventoryController.Instance)
-        {
-            InventoryController.Instance.Toggle();
-        }
-    }
 }

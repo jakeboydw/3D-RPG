@@ -11,6 +11,7 @@ public class InputManager : MonoBehaviour
 
     private InputActionMap playerMap;
     private InputActionMap uiMap;
+    private InputActionMap globalMap;
 
     private void Awake()
     {
@@ -23,8 +24,20 @@ public class InputManager : MonoBehaviour
 
         playerMap = actions.FindActionMap("Player");
         uiMap = actions.FindActionMap("UI");
+        globalMap = actions.FindActionMap("Global");
 
         EnablePlayerInput();
+        globalMap.Enable();
+    }
+
+    private void OnEnable()
+    {
+        globalMap.FindAction("ToggleInventory").started += OnToggleInventory;
+    }
+
+    private void OnDisable()
+    {
+        globalMap.FindAction("ToggleInventory").started -= OnToggleInventory;
     }
 
     public void EnablePlayerInput()
@@ -37,5 +50,13 @@ public class InputManager : MonoBehaviour
     {
         uiMap.Enable();
         playerMap.Disable();
+    }
+
+    public void OnToggleInventory(InputAction.CallbackContext ctx)
+    {
+        if (InventoryController.Instance)
+        {
+            InventoryController.Instance.Toggle();
+        }
     }
 }
