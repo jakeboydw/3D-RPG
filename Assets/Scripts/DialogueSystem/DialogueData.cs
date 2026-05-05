@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewDialogue", menuName = "RPG/Dialogue")]
-public class DialogueData : ScriptableObject
+[System.Serializable]
+public class DialogueData
 {
+    public string dialogueID;
     public string speaker;
-    [TextArea]
     public List<string> lines;
 }

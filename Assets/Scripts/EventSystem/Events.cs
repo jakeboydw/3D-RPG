@@ -1,4 +1,4 @@
-public struct GartherItemEvent
+public struct CollectItemEvent
 {
     public string itemID;
     public int amount;

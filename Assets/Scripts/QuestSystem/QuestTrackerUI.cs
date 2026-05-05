@@ -13,7 +13,7 @@ public class QuestTrackerUI : MonoBehaviour
 
     public void Refresh()
     {
-        QuestStatus quest = QuestManager.Instance.selectedQuest;
+        QuestRuntime quest = QuestManager.Instance.selectedQuest;
 
         if (quest == null)
         {
@@ -22,8 +22,7 @@ public class QuestTrackerUI : MonoBehaviour
             return;
         }
 
-        QuestStep questStep = quest.steps[quest.currentStepIndex];
-        questName.text = quest.questName;
-        questDescription.text = questStep.GetProgressText();
+        questName.text = quest.data.questName;
+        questDescription.text = quest.CurrentStep.GetDescription();
     }
 }

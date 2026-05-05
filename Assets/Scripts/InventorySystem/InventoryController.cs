@@ -43,16 +43,33 @@ public class InventoryController : MonoBehaviour
     }
 
     // === 外部调用接口 ===
+    public int Count(string itemID)
+    {
+        int total = 0;
+        foreach (var item in model.Items)
+        {
+            if (item.itemID == itemID)
+            {
+                total += item.amount;
+            }
+        }
+        return total;
+    }
 
     public void AddItem(string itemID, int amount = 1)
     {
         model.Add(itemID, amount);
 
-        EventCenter.Publish(new GartherItemEvent
+        EventCenter.Publish(new CollectItemEvent
         {
             itemID = itemID,
             amount = amount
         });
+    }
+
+    public void RemoveItem(string itemID, int amount = 1)
+    {
+        model.Remove(itemID, amount);
     }
 
     public bool IsOpen()

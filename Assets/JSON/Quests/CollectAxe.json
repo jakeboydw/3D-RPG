@@ -1,0 +1,37 @@
+{
+  "questID": "q001",
+  "questName": "找回村民的斧头",
+  "description": "村民的斧头丢了，在村子里帮他找回斧头吧。",
+  "giveDialogueID": "CollectAxeGiveDialogue",
+  "steps": [
+    {
+      "stepID": "step1",
+      "description": "在村子里找到村民的斧头。",
+      "conditions": [
+        {
+          "type": "CollectItem",
+          "targetID": "Axe",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "stepID": "step2",
+      "description": "回去与村民对话。",
+      "dialogueID": "CollectAxeStepDialogue",
+      "conditions": [
+        {
+          "type": "TalkToNPC",
+          "targetID": "村民"
+        }
+      ],
+      "onFinishEffects": [
+        {
+          "type": "RemoveItem",
+          "target": "Axe",
+          "amount": 1
+        }
+      ]
+    }
+  ]
+}

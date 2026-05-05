@@ -37,9 +37,18 @@ public class InventoryModel
         onChanged?.Invoke();
     }
 
-    public void Remove(ItemData item)
+    public void Remove(string itemID, int amount)
     {
-        items.Remove(item);
-        onChanged?.Invoke();
+        ItemData item = items.Find(i => i.itemID == itemID);
+
+        if (item != null)
+        {
+            item.amount -= amount;
+            if (item.amount <= 0)
+            {
+                items.Remove(item);
+            }
+            onChanged?.Invoke();
+        }
     }
 }

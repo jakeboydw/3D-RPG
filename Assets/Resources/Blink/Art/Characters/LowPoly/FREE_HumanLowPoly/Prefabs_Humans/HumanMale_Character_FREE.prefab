@@ -1003,7 +1003,7 @@ GameObject:
   - component: {fileID: 4540229000190281644}
   - component: {fileID: 5186890699111313122}
   - component: {fileID: 5914537990926845199}
-  - component: {fileID: 3487247958077543104}
+  - component: {fileID: 8381040559689564019}
   m_Layer: 6
   m_Name: HumanMale_Character_FREE
   m_TagString: Untagged
@@ -1101,7 +1101,7 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
---- !u!114 &3487247958077543104
+--- !u!114 &8381040559689564019
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1114,9 +1114,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestGiver
   npcID: "\u6751\u6C11"
-  quests:
-  - {fileID: 11400000, guid: 9cb14be3fa4f9484f89fcf5218576001, type: 2}
-  normalDialogue: {fileID: 11400000, guid: 53004cb23022b5b4c85510bd5279a42e, type: 2}
+  normalDialogueID: VillagerNormalDialogue
+  questSequence:
+  - q001
 --- !u!1 &1789272960074739661
 GameObject:
   m_ObjectHideFlags: 0

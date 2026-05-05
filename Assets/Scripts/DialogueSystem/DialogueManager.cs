@@ -30,8 +30,10 @@ public class DialogueManager : MonoBehaviour
         dialogueBox.SetActive(false);
     }
 
-    public void StartDialogue(DialogueData data, Action onEnd = null)
+    public void StartDialogue(string dialogueID, Action onEnd = null)
     {
+        var data = DialogueDatabase.Instance.Get(dialogueID);
+
         isTalking = true;
         dialogueBox.SetActive(true);
 

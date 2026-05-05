@@ -1777,54 +1777,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &837746867
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 837746869}
-  - component: {fileID: 837746868}
-  m_Layer: 0
-  m_Name: DialogueDatabase
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &837746868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 837746867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59fb927d6a060ac42901f8d4e7bc022d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DialogueDatabase
-  dialogueJsonFiles:
-  - {fileID: 4900000, guid: 03ae28ad6c3e2b1479f850c597fe2ab5, type: 3}
-  - {fileID: 4900000, guid: 5a26ac0f2fc77734cab687283e421491, type: 3}
-  - {fileID: 4900000, guid: 9b4302cb0cbfbe64d98c7f1738e7c2e6, type: 3}
---- !u!4 &837746869
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 837746867}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.14473, y: 0, z: 3.45374}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &841052050
 GameObject:
   m_ObjectHideFlags: 0
@@ -3229,7 +3181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestDatabase
   questJsonFiles:
-  - {fileID: 4900000, guid: 84b0af3bed73a804f8362a0f02dd5a99, type: 3}
+  - {fileID: 4900000, guid: 4d9c432a0b2019a4d8c6edf2de75f5de, type: 3}
 --- !u!4 &1628948527
 Transform:
   m_ObjectHideFlags: 0
@@ -4397,4 +4349,3 @@ SceneRoots:
   - {fileID: 383616238}
   - {fileID: 1835475032}
   - {fileID: 1628948527}
-  - {fileID: 837746869}

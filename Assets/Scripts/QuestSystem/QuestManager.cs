@@ -6,11 +6,10 @@ public class QuestManager : MonoBehaviour
     private static QuestManager instance;
     public static QuestManager Instance => instance;
 
-    public List<QuestStatus> activeQuests = new List<QuestStatus>();
-    public List<QuestStatus> completedQuests = new List<QuestStatus>();
+    public List<QuestRuntime> activeQuests = new List<QuestRuntime>();
+    public List<QuestRuntime> completedQuests = new List<QuestRuntime>();
 
-    [System.NonSerialized]
-    public QuestStatus selectedQuest; //当前追踪的任务
+    public QuestRuntime selectedQuest; //当前追踪的任务
 
     public QuestTrackerUI trackerUI;
 
@@ -25,59 +24,27 @@ public class QuestManager : MonoBehaviour
         instance = this;
     }
 
-    public void AcceptQuest(Quest quest)
+    public void AcceptQuest(QuestData data)
     {
-        QuestStatus questStatus = new QuestStatus
-        {
-            questID = quest.questID,
-            questName = quest.questName,
-            state = QuestState.InProgress,
-            steps = quest.steps,
-            currentStepIndex = 0,
-            currentStepAmount = 0
-        };
+        QuestRuntime runtime = new QuestRuntime(data);
 
-        activeQuests.Add(questStatus);
+        activeQuests.Add(runtime);
         if (selectedQuest == null)
         {
-            selectedQuest = questStatus;
+            selectedQuest = runtime;
         }
-
-        questStatus.steps[0].OnStart(questStatus);
 
         RefreshUI();
     }
 
-    public void AdvanceStep(QuestStatus status)
+    public void OnQuestCompleted(QuestRuntime quest)
     {
-        QuestStep currentStep = status.steps[status.currentStepIndex];
-        currentStep.OnFinish();
+        activeQuests.Remove(quest);
+        completedQuests.Add(quest);
 
-        status.currentStepIndex++;
-        status.currentStepAmount = 0;
-
-        if (status.currentStepIndex >= status.steps.Count)
+        if (selectedQuest == quest)
         {
-            CompleteQuest(status);
-            return;
-        }
-
-        QuestStep nextStep = status.steps[status.currentStepIndex];
-        nextStep.OnStart(status);
-
-        RefreshUI();
-    }
-
-    private void CompleteQuest(QuestStatus status)
-    {
-        status.state = QuestState.Completed;
-
-        activeQuests.Remove(status);
-        completedQuests.Add(status);
-
-        if (selectedQuest == status)
-        {
-            selectedQuest = activeQuests.Count > 0 ? activeQuests[activeQuests.Count - 1] : null; //自动设置为最近接受的任务
+            selectedQuest = activeQuests.Count > 0 ? activeQuests[^1] : null;
         }
 
         RefreshUI();
