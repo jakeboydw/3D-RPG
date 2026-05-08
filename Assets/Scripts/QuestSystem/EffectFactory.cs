@@ -6,6 +6,7 @@ public static class EffectFactory
     {
         return data.type switch
         {
+            "AddItem" => new AddItemEffect(data),
             "RemoveItem" => new RemoveItemEffect(data),
             _ => null
         };

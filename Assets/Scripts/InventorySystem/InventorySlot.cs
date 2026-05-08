@@ -1,9 +1,11 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour
 {
     public Image icon;
+    public TextMeshProUGUI count;
     public GameObject highlight;
 
     private ItemData data;
@@ -15,6 +17,7 @@ public class InventorySlot : MonoBehaviour
         if (data == null)
         {
             icon.enabled = false;
+            count.enabled = false;
             return;
         }
 
@@ -22,6 +25,9 @@ public class InventorySlot : MonoBehaviour
 
         icon.enabled = true;
         icon.sprite = config.icon;
+
+        count.enabled = true;
+        count.text = data.amount.ToString();
     }
 
     public ItemData GetItem()

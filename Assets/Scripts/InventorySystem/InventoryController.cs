@@ -194,6 +194,6 @@ public class InventoryController : MonoBehaviour
 
     public void UseItem(ItemData item)
     {
-
+        //can add buff here
     }
 }

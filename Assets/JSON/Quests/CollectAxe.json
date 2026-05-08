@@ -28,8 +28,23 @@
       "onFinishEffects": [
         {
           "type": "RemoveItem",
-          "target": "Axe",
+          "targetID": "Axe",
           "amount": 1
+        },
+        {
+          "type": "AddItem",
+          "targetID": "Apple",
+          "amount": 5
+        },
+        {
+          "type": "AddItem",
+          "targetID": "Meat",
+          "amount": 5
+        },
+        {
+          "type": "AddItem",
+          "targetID": "SpeedPotion",
+          "amount": 5
         }
       ]
     }
