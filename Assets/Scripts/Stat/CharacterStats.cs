@@ -14,6 +14,10 @@ public class CharacterStats
 
     public CharacterStat GetStat(StatType type)
     {
-        return stats[type];
+        if (stats.TryGetValue(type, out CharacterStat stat))
+        {
+            return stat;
+        }
+        return null;
     }
 }

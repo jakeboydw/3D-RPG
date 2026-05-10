@@ -18,3 +18,6 @@ MonoBehaviour:
   description: "\u4F7F\u7528\u540E\u572830\u79D2\u5185\u589E\u52A010\u70B9\u653B\u51FB\u529B\u3002"
   canUse: 1
   canDrop: 0
+  useType: 0
+  buffIds:
+  - MeatAttackUp

@@ -1,0 +1,12 @@
+{
+  "id": "MeatAttackUp",
+  "duration": 30,
+  "effects": [
+    {
+      "type": 0,
+      "stat": 1,
+      "mode": 0,
+      "value": 10
+    }
+  ]
+}

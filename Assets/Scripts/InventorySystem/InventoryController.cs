@@ -9,6 +9,8 @@ public class InventoryController : MonoBehaviour
     public InventoryView view;
     public int column = 5;
 
+    public GameObject player;
+
     private InventoryModel model;
     private int currentIndex = 0;
     private bool isOpen = false;
@@ -194,6 +196,28 @@ public class InventoryController : MonoBehaviour
 
     public void UseItem(ItemData item)
     {
-        //can add buff here
+        item.amount--;
+
+        GameObject target = null;
+        ItemConfig itemConfig = ItemDatabase.Instance.Get(item.itemID);
+
+        //设置Buff施加的目标（需要解耦）
+        switch (itemConfig.useType)
+        {
+            case ItemUseType.Self:
+                target = player;
+                break;
+            default:
+                target = player;
+                break;
+        }
+        foreach (var id in itemConfig.buffIds)
+        {
+            BuffConfig buff = BuffDatabase.Instance.Get(id);
+            Debug.Log(buff.id);
+            BuffSystem.Instance.ApplyBuff(buff, target);
+        }
+
+        RefreshView();
     }
 }

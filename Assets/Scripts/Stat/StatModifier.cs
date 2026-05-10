@@ -2,15 +2,15 @@ using UnityEngine;
 
 public enum StatType
 { 
-    MaxHP,
-    Attack,
-    MoveSpeed
+    MaxHP = 0,
+    Attack = 1,
+    MoveSpeed = 2
 }
 
 public enum StatModType
 {
-    Flat,     // +20
-    Percent   // +10%
+    Flat = 0,     // +20
+    Percent = 1   // +10%
 }
 
 public class StatModifier

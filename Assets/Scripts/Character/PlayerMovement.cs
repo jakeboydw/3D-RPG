@@ -19,8 +19,11 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator anim;
 
+    private Character character;
+
     private void Start()
     {
+        character = GetComponent<Character>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         if (Camera.main != null)
@@ -34,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        moveSpeed = character.Stats.GetStat(StatType.MoveSpeed).Value;
         CheckGround();
         UpdateAnimation();
     }

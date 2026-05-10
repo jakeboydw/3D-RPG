@@ -1081,6 +1081,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventoryController
   view: {fileID: 1823531294}
   column: 5
+  player: {fileID: 855842864}
 --- !u!4 &383616238
 Transform:
   m_ObjectHideFlags: 0
@@ -1900,6 +1901,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 841052050}
   m_CullTransparentMesh: 1
+--- !u!1 &850235709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 850235711}
+  - component: {fileID: 850235710}
+  m_Layer: 0
+  m_Name: BuffSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &850235710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850235709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee3fdd65369181d49b9da04cc7e24bce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuffSystem
+--- !u!4 &850235711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850235709}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.30685, y: -0, z: 4.46153}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &855842864 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5352958571798197664, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
+  m_PrefabInstance: {fileID: 187324027}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &902956118
 GameObject:
   m_ObjectHideFlags: 0
@@ -2068,6 +2118,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 938744592}
   m_CullTransparentMesh: 1
+--- !u!1 &980021773
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 980021775}
+  - component: {fileID: 980021774}
+  m_Layer: 0
+  m_Name: BuffDatabase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &980021774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980021773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70e37aa210de95c4e96e8a8da672238b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuffDatabase
+  buffJsonFiles:
+  - {fileID: 4900000, guid: 1a479ff6fb9217b41a720be4019f2885, type: 3}
+  - {fileID: 4900000, guid: d93e72e6ee30ffc4c971e0b5ccf04aa0, type: 3}
+  - {fileID: 4900000, guid: 741ab3c6ad398f6458e044fe8381e4c7, type: 3}
+--- !u!4 &980021775
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980021773}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.30685, y: -0, z: 4.46153}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1021792129
 GameObject:
   m_ObjectHideFlags: 0
@@ -4459,3 +4557,5 @@ SceneRoots:
   - {fileID: 1628948527}
   - {fileID: 837746869}
   - {fileID: 1382306297}
+  - {fileID: 980021775}
+  - {fileID: 850235711}

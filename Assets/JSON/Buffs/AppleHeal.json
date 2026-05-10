@@ -1,0 +1,10 @@
+{
+  "id": "AppleHeal",
+  "duration": 0,
+  "effects": [
+    {
+      "type": 1,
+      "value": 15
+    }
+  ]
+}

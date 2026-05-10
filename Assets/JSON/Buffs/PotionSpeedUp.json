@@ -1,0 +1,12 @@
+{
+  "id": "PotionSpeedUp",
+  "duration": 30,
+  "effects": [
+    {
+      "type": 0,
+      "stat": 2,
+      "mode": 0,
+      "value": 5
+    }
+  ]
+}

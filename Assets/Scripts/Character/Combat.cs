@@ -1,25 +1,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public struct DamageInfo
+{
+    public float damage;
+    public GameObject target;
+    public GameObject attacker;
+}
+
 public class Combat : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int baseAttackForce = 20;
-
     public float radius = 3f;
     public float angle = 90f;
     public LayerMask targetLayer;
 
-    private int health;
-    private int attackForce;
+    private float attackForce;
 
     private Animator anim;
+    private Character character;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
-        health = maxHealth;
-        attackForce = baseAttackForce;
+        character = GetComponent<Character>();
+        attackForce = character.Stats.GetStat(StatType.Attack).Value;
+    }
+
+    private void Update()
+    {
+        attackForce = character.Stats.GetStat(StatType.Attack).Value;
     }
 
     public void OnAttack()
@@ -29,11 +38,25 @@ public class Combat : MonoBehaviour
         List<Collider> targets = DetectTargets();
         foreach (Collider target in targets)
         {
-            CombatTarget combatTarget = target.GetComponent<CombatTarget>();
-            if (combatTarget != null)
+            DamageInfo damageInfo = new DamageInfo
             {
-                combatTarget.TakeDamage(attackForce);
+                attacker = gameObject,
+                target = target.gameObject,
+                damage = attackForce
+            };
+
+            Health health = target.GetComponent<Health>();
+            if (health != null)
+            {
+                health.TakeDamage(damageInfo.damage);
+
+                if (health.IsDead())
+                {
+                    target.GetComponent<Character>().OnDie();
+                }
             }
+
+            target.GetComponent<Character>().OnHit();
         }
     }
 

@@ -370,7 +370,8 @@ GameObject:
   - component: {fileID: 8035681660144644490}
   - component: {fileID: 447014078224647700}
   - component: {fileID: 7312519222029902200}
-  - component: {fileID: 5075816639234104056}
+  - component: {fileID: 1070276193741217122}
+  - component: {fileID: 5770871015284462404}
   m_Layer: 7
   m_Name: SlimePolyart
   m_TagString: Untagged
@@ -467,7 +468,7 @@ CapsuleCollider:
   m_Height: 0.9
   m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &5075816639234104056
+--- !u!114 &1070276193741217122
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -476,11 +477,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 7153141402127884706}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f42be6ac010019d4c933016e5100d45f, type: 3}
+  m_Script: {fileID: 11500000, guid: adcb99f2a7d47fe41903107325640afc, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CombatTarget
-  maxHealth: 50
-  baseAttackForce: 5
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+--- !u!114 &5770871015284462404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7153141402127884706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcfe9654079970f408e13460fc7189c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Character
+  baseMaxHP: 50
+  baseAttack: 15
+  baseMoveSpeed: 5
 --- !u!1 &7446019047767849115
 GameObject:
   m_ObjectHideFlags: 0
