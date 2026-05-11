@@ -214,7 +214,6 @@ public class InventoryController : MonoBehaviour
         foreach (var id in itemConfig.buffIds)
         {
             BuffConfig buff = BuffDatabase.Instance.Get(id);
-            Debug.Log(buff.id);
             BuffSystem.Instance.ApplyBuff(buff, target);
         }
 

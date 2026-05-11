@@ -7,7 +7,7 @@ public class Health : MonoBehaviour
     private float HP;
     private bool isDead = false;
 
-    private void Awake()
+    private void Start()
     {
         character = GetComponent<Character>();
 
