@@ -11,7 +11,7 @@ public static class EventCenter
 
     public static void Subscribe<T>(Action<T> callback)
     {
-        Action<object> wrapper = (obj) => callback((T)obj);
+        Action<object> wrapper = (obj) => callback((T)obj); //对回调函数的包装
         wrapperMap[callback] = wrapper;
 
         Type type = typeof(T);

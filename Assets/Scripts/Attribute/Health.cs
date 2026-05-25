@@ -4,7 +4,7 @@ public class Health : MonoBehaviour
 {
     private Character character;
 
-    private float HP;
+    public float HP;
     private bool isDead = false;
 
     private void Start()
