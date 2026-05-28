@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class ActionPanel : MonoBehaviour
 {
@@ -7,7 +8,7 @@ public class ActionPanel : MonoBehaviour
 
     public static ActionPanel Instance => instance;
 
-    public GameObject panel;
+    public RectTransform panel;
     public List<ActionButton> buttons;
     public Vector3 panelOffset = new Vector3(20, 0, 0);
 
@@ -25,19 +26,25 @@ public class ActionPanel : MonoBehaviour
         }
         instance = this;
 
-        panel.SetActive(false);
+        panel.localScale = Vector3.zero;
+        panel.gameObject.SetActive(false);
     }
 
     public void Open(ItemData item, Transform slot)
     {
+        panel.DOKill();
+
         currentItem = item;
-        panel.SetActive(true);
         InventoryController.Instance.SetActionPanelState(true);
 
-        panel.transform.position = slot.position + panelOffset;
+        panel.position = slot.position + panelOffset;
 
         SetupButtons();
         Select(0);
+
+        panel.gameObject.SetActive(true);
+        panel.localScale = Vector3.zero;
+        panel.DOScale(Vector3.one, 0.15f).SetEase(Ease.OutBack);
     }
 
     private void SetupButtons()
@@ -87,7 +94,13 @@ public class ActionPanel : MonoBehaviour
 
     public void Close()
     {
-        panel.SetActive(false);
+        panel.DOKill();
+
+        panel.DOScale(Vector3.zero, 0.12f).SetEase(Ease.InBack).OnComplete(() =>
+        {
+            panel.gameObject.SetActive(false);
+        });
+
         InventoryController.Instance.SetActionPanelState(false);
     }
 

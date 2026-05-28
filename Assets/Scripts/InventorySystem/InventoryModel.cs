@@ -47,6 +47,7 @@ public class InventoryModel
             if (item.amount <= 0)
             {
                 items.Remove(item);
+                ActionPanel.Instance.Close();
             }
             onChanged?.Invoke();
         }

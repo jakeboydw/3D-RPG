@@ -1,10 +1,14 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using DG.Tweening;
 
 public class InventoryView : MonoBehaviour
 {
-    public GameObject panel;
+    public RectTransform panel;
+
+    public float openDuration = 0.25f;
+    public float closeDuration = 0.2f;
 
     public GameObject slotPrefab;
     public Transform gridRoot;
@@ -13,11 +17,20 @@ public class InventoryView : MonoBehaviour
     public TextMeshProUGUI itemName;
     public TextMeshProUGUI itemDescription;
 
+    private Vector2 showPos;
+    private Vector2 hidePos;
+
     private List<InventorySlot> slots = new List<InventorySlot>();
 
     private void Awake()
     {
         GenerateSlots();
+
+        showPos = panel.anchoredPosition;
+        hidePos = showPos + Vector2.down * 1200;
+
+        panel.anchoredPosition = hidePos;
+        panel.gameObject.SetActive(false);
     }
 
     //自动生成物品栏
@@ -35,7 +48,20 @@ public class InventoryView : MonoBehaviour
 
     public void Show(bool show)
     {
-        panel.SetActive(show);
+        panel.DOKill();
+
+        if (show)
+        {
+            panel.gameObject.SetActive(true);
+            panel.DOAnchorPos(showPos, openDuration).SetEase(Ease.OutCubic);
+        }
+        else
+        {
+            panel.DOAnchorPos(hidePos, closeDuration).SetEase(Ease.InCubic).OnComplete(() =>
+            {
+                panel.gameObject.SetActive(false);
+            });
+        }
     }
 
     public void Refresh(IReadOnlyList<ItemData> items)

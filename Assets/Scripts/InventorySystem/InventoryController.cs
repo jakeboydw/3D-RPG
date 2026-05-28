@@ -196,7 +196,7 @@ public class InventoryController : MonoBehaviour
 
     public void UseItem(ItemData item)
     {
-        item.amount--;
+        RemoveItem(item.itemID, 1);
 
         GameObject target = null;
         ItemConfig itemConfig = ItemDatabase.Instance.Get(item.itemID);
@@ -216,7 +216,5 @@ public class InventoryController : MonoBehaviour
             BuffConfig buff = BuffDatabase.Instance.Get(id);
             BuffSystem.Instance.ApplyBuff(buff, target);
         }
-
-        RefreshView();
     }
 }
