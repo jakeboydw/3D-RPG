@@ -16,13 +16,18 @@ public class Combat : MonoBehaviour
 
     private float attackForce;
 
+    private int comboIndex = 0;
+    private bool comboQueued = false;
+
     private Animator anim;
     private Character character;
+    private PlayerMovement movementController;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
         character = GetComponent<Character>();
+        movementController = GetComponent<PlayerMovement>();
         attackForce = character.Stats.GetStat(StatType.Attack).Value;
     }
 
@@ -33,9 +38,30 @@ public class Combat : MonoBehaviour
 
     public void OnAttack()
     {
-        anim.SetTrigger("Attack");
+        if (character.IsAttacking)
+        {
+            comboQueued = true;
+            return;
+        }
 
+        StartCombo();
+    }
+
+    private void StartCombo()
+    {
+        comboIndex = 1;
+
+        character.StartAttack();
+
+        anim.SetInteger("ComboIndex", comboIndex);
+        anim.SetTrigger("Attack");
+    }
+
+    public void AttackHit()
+    {
         List<Collider> targets = DetectTargets();
+        movementController.RotateToAttackTarget(targets);
+
         foreach (Collider target in targets)
         {
             DamageInfo damageInfo = new DamageInfo
@@ -52,11 +78,11 @@ public class Combat : MonoBehaviour
 
                 if (health.IsDead())
                 {
-                    target.GetComponent<Character>().OnDie();
+                    target.GetComponent<Character>()?.OnDie();
                 }
             }
 
-            target.GetComponent<Character>().OnHit();
+            target.GetComponent<Character>()?.OnHit();
         }
     }
 
@@ -79,5 +105,24 @@ public class Combat : MonoBehaviour
         }
 
         return result;
+    }
+
+    public void ComboWindowOpen()
+    {
+        if (!comboQueued) return;
+
+        comboQueued = false;
+        comboIndex++;
+        comboIndex = Mathf.Clamp(comboIndex, 1, 3);
+        anim.SetInteger("ComboIndex", comboIndex);
+    }
+
+    public void EndCombo()
+    {
+        comboQueued = false;
+        comboIndex = 0;
+        anim.SetInteger("ComboIndex", comboIndex);
+
+        character.EndAttack();
     }
 }

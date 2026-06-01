@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using DG.Tweening;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -14,14 +13,9 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI speakerText;
     public TextMeshProUGUI contentText;
 
-    public float typingDuration = 0.8f;
-
     private Queue<string> sentences = new Queue<string>();
     private Action onDialogueEnd;
     private bool isTalking = false;
-
-    private Tween typingTween;
-    private bool isTyping = false;
 
     private void Awake()
     {
@@ -60,26 +54,13 @@ public class DialogueManager : MonoBehaviour
 
     public void ShowNext()
     {
-        //如果正在打字，再次输入则直接显示完整句子
-        if (isTyping)
-        {
-            typingTween.Complete();
-            return;
-        }
-
         if (sentences.Count == 0)
         {
             EndDialogue();
             return;
         }
 
-        string line = sentences.Dequeue();
-        contentText.text = "";
-
-        typingTween?.Kill();
-
-        isTyping = true;
-        
+        contentText.text = sentences.Dequeue();
     }
 
     private void EndDialogue()

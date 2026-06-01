@@ -299,10 +299,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_building_01 (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 1640908652775104, guid: cd87e5026d1695148aabe96121c526ef, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 4003897846794392, guid: cd87e5026d1695148aabe96121c526ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 18.60129
@@ -871,30 +867,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2722492420231830824, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -3.2292929
-      objectReference: {fileID: 0}
-    - target: {fileID: 2722492420231830824, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 25.222902
-      objectReference: {fileID: 0}
-    - target: {fileID: 2722492420231830824, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -14.817949
-      objectReference: {fileID: 0}
-    - target: {fileID: 3606662575687051508, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -0.66379195
-      objectReference: {fileID: 0}
-    - target: {fileID: 3606662575687051508, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 7.8011603
-      objectReference: {fileID: 0}
-    - target: {fileID: 3606662575687051508, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 4.74791
-      objectReference: {fileID: 0}
     - target: {fileID: 4684403152539725594, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.64
@@ -939,69 +911,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6096115641610148428, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 3.1920881
-      objectReference: {fileID: 0}
     - target: {fileID: 6220387040556316688, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
       propertyPath: m_Interpolate
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6361381819290928213, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 62.92106
-      objectReference: {fileID: 0}
-    - target: {fileID: 6361381819290928213, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 157.58824
-      objectReference: {fileID: 0}
-    - target: {fileID: 6361381819290928213, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 145.45009
-      objectReference: {fileID: 0}
-    - target: {fileID: 8447263882092980095, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
-      propertyPath: baseAttack
-      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8517950076101262968, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
       propertyPath: jumpForce
       value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 8517950076101262968, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
-      propertyPath: autoTurnAngle
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 8517950076101262968, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
-      propertyPath: attackRotateSpeed
-      value: 360
-      objectReference: {fileID: 0}
-    - target: {fileID: 8517950076101262968, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
       propertyPath: gravityMultiplier
       value: 12.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8622838887720496378, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
-      propertyPath: angle
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 8622838887720496378, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
-      propertyPath: radius
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8715508464901095395, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 6.381385
-      objectReference: {fileID: 0}
-    - target: {fileID: 8715508464901095395, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -172.06607
-      objectReference: {fileID: 0}
-    - target: {fileID: 8715508464901095395, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -38.572987
-      objectReference: {fileID: 0}
-    - target: {fileID: 9134230160013887127, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 4.7730093
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1101,7 +1021,6 @@ MonoBehaviour:
   minTargetDistance: 1
   maxTargetDistance: 8
   distanceSmoothSpeed: 10
-  cameraDistanceSmoothTime: 0.2
 --- !u!1 &255136020
 GameObject:
   m_ObjectHideFlags: 0
@@ -2128,7 +2047,7 @@ MonoBehaviour:
     m_Bits: 128
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
 --- !u!1 &895187032
 GameObject:
   m_ObjectHideFlags: 0
@@ -2432,10 +2351,6 @@ PrefabInstance:
     - target: {fileID: 1121113006719782, guid: 386f40ad68cdd3c4fbcb471ef2d93772, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_building_05
-      objectReference: {fileID: 0}
-    - target: {fileID: 1121113006719782, guid: 386f40ad68cdd3c4fbcb471ef2d93772, type: 3}
-      propertyPath: m_Layer
-      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4519282631701236, guid: 386f40ad68cdd3c4fbcb471ef2d93772, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2837,10 +2752,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_building_03
       objectReference: {fileID: 0}
-    - target: {fileID: 1232766363669618, guid: 2b519101e10d4a74580d4c86ac9e03e6, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 4998326679312090, guid: 2b519101e10d4a74580d4c86ac9e03e6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.7171326
@@ -2910,10 +2821,6 @@ PrefabInstance:
     - target: {fileID: 1185082912798350, guid: 71442e8cd72511e4fabb72f1a2cc82dd, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_building_04
-      objectReference: {fileID: 0}
-    - target: {fileID: 1185082912798350, guid: 71442e8cd72511e4fabb72f1a2cc82dd, type: 3}
-      propertyPath: m_Layer
-      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4419083434238170, guid: 71442e8cd72511e4fabb72f1a2cc82dd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3056,10 +2963,6 @@ PrefabInstance:
     - target: {fileID: 1275909538635612, guid: 2767c12992d890f44b14f433fe854668, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_building_02
-      objectReference: {fileID: 0}
-    - target: {fileID: 1275909538635612, guid: 2767c12992d890f44b14f433fe854668, type: 3}
-      propertyPath: m_Layer
-      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4422725698349158, guid: 2767c12992d890f44b14f433fe854668, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5028,10 +4931,10 @@ MonoBehaviour:
   CameraSide: 0.9
   CameraDistance: 4.5
   AvoidObstacles:
-    Enabled: 1
+    Enabled: 0
     CollisionFilter:
       serializedVersion: 2
-      m_Bits: 513
+      m_Bits: 1
     IgnoreTag: 
     CameraRadius: 0.2
     DampingIntoCollision: 0
@@ -5401,10 +5304,6 @@ PrefabInstance:
     - target: {fileID: 1640908652775104, guid: cd87e5026d1695148aabe96121c526ef, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_building_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 1640908652775104, guid: cd87e5026d1695148aabe96121c526ef, type: 3}
-      propertyPath: m_Layer
-      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4003897846794392, guid: cd87e5026d1695148aabe96121c526ef, type: 3}
       propertyPath: m_LocalPosition.x

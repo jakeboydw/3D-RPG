@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Character : MonoBehaviour
@@ -7,6 +8,8 @@ public class Character : MonoBehaviour
     public float baseMaxHP;
     public float baseAttack;
     public float baseMoveSpeed;
+
+    public bool IsAttacking { get; private set; }
 
     private Animator anim;
 
@@ -20,6 +23,16 @@ public class Character : MonoBehaviour
         Stats.GetStat(StatType.MoveSpeed).BaseValue = baseMoveSpeed;
 
         anim = GetComponent<Animator>();
+    }
+
+    public void StartAttack()
+    {
+        IsAttacking = true;
+    }
+
+    public void EndAttack()
+    {
+        IsAttacking = false;
     }
 
     public void OnHit()
