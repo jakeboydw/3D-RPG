@@ -38,3 +38,6 @@ Unity开发的RPG游戏。
 
 使用物品后，获得Buff，改变角色属性
 <img width="1920" height="1140" alt="屏幕截图 2026-05-11 103716" src="https://github.com/user-attachments/assets/6b5ca936-e9a7-4150-9e64-48bab6840ea6" />
+
+战斗锁定 
+<img width="761" height="478" alt="screenshots" src="https://github.com/user-attachments/assets/09cefb4a-acc4-45bf-9b00-b63e5b544269" />
