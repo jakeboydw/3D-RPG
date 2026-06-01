@@ -64059,7 +64059,14 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.53333336
-    functionName: EndCombo
+    functionName: EndAttack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.53333336
+    functionName: ResetCombo
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

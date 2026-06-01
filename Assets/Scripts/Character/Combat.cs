@@ -38,13 +38,23 @@ public class Combat : MonoBehaviour
 
     public void OnAttack()
     {
-        if (character.IsAttacking)
-        {
-            comboQueued = true;
-            return;
-        }
+        if (!movementController.CanAttack()) return;
 
-        StartCombo();
+        comboIndex++;
+        if (comboIndex > 3)
+        {
+            comboIndex = 1;
+        }
+        anim.SetInteger("ComboIndex", comboIndex);
+
+        character.StartAttack();
+
+        anim.SetTrigger("Attack");
+    }
+
+    public void ResetCombo()
+    {
+        comboIndex = 0;
     }
 
     private void StartCombo()
