@@ -30,9 +30,9 @@ public class CameraLook : MonoBehaviour
     public float minTargetDistance = 1f;
     public float maxTargetDistance = 10f;
 
-    public float distanceSmoothSpeed = 5f;
-
     public float cameraDistanceSmoothTime = 0.2f;
+
+    public float normalDistance = 4.5f;
 
     private float yaw;
     private float pitch;
@@ -118,7 +118,7 @@ public class CameraLook : MonoBehaviour
     {
         if (follow == null) return;
 
-        float targetDistance = follow.CameraDistance;
+        float targetDistance = normalDistance;
 
         if (lockOnSystem != null && lockOnSystem.IsLocked)
         {
