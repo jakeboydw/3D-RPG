@@ -27,6 +27,7 @@ public class Combat : MonoBehaviour
     private Character character;
     private PlayerMovement movementController;
     private PlayerFSM fsm;
+    private WeaponHitbox hitbox;
 
     private void Start()
     {
@@ -34,8 +35,11 @@ public class Combat : MonoBehaviour
         character = GetComponent<Character>();
         movementController = GetComponent<PlayerMovement>();
         fsm = GetComponent<PlayerFSM>();
+        hitbox = GetComponentInChildren<WeaponHitbox>();
 
         attackForce = character.Stats.GetStat(StatType.Attack).Value;
+
+        hitbox.Initialize(this);
     }
 
     private void Update()
@@ -56,6 +60,35 @@ public class Combat : MonoBehaviour
         {
             comboQueued = true;
         }
+    }
+
+    public void EnableHitbox()
+    {
+        hitbox.EnableHitbox();
+    }
+
+    public void DisableHitbox()
+    {
+        hitbox.DisableHitbox();
+    }
+
+    public void DealWithDamage(Health target)
+    {
+        DamageInfo damageInfo = new DamageInfo
+        {
+            attacker = gameObject,
+            target = target.gameObject,
+            damage = attackForce
+        };
+
+        target.TakeDamage(damageInfo.damage);
+
+        if (target.IsDead())
+        {
+            target.GetComponent<Character>()?.OnDie();
+        }
+
+        target.GetComponent<Character>()?.OnHit();
     }
 
     public void AttackHit()
