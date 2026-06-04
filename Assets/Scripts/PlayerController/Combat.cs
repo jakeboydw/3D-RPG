@@ -91,55 +91,57 @@ public class Combat : MonoBehaviour
         target.GetComponent<Character>()?.OnHit();
     }
 
-    public void AttackHit()
-    {
-        List<Collider> targets = DetectTargets();
-        movementController.RotateToAttackTarget(targets);
+    //攻击扇形检测，不再使用
 
-        foreach (Collider target in targets)
-        {
-            DamageInfo damageInfo = new DamageInfo
-            {
-                attacker = gameObject,
-                target = target.gameObject,
-                damage = attackForce
-            };
+    //public void AttackHit()
+    //{
+    //    List<Collider> targets = DetectTargets();
+    //    movementController.RotateToAttackTarget(targets);
 
-            Health health = target.GetComponent<Health>();
-            if (health != null)
-            {
-                health.TakeDamage(damageInfo.damage);
+    //    foreach (Collider target in targets)
+    //    {
+    //        DamageInfo damageInfo = new DamageInfo
+    //        {
+    //            attacker = gameObject,
+    //            target = target.gameObject,
+    //            damage = attackForce
+    //        };
 
-                if (health.IsDead())
-                {
-                    target.GetComponent<Character>()?.OnDie();
-                }
-            }
+    //        Health health = target.GetComponent<Health>();
+    //        if (health != null)
+    //        {
+    //            health.TakeDamage(damageInfo.damage);
 
-            target.GetComponent<Character>()?.OnHit();
-        }
-    }
+    //            if (health.IsDead())
+    //            {
+    //                target.GetComponent<Character>()?.OnDie();
+    //            }
+    //        }
 
-    private List<Collider> DetectTargets()
-    {
-        List<Collider> result = new List<Collider>();
+    //        target.GetComponent<Character>()?.OnHit();
+    //    }
+    //}
 
-        Collider[] hits = Physics.OverlapSphere(transform.position, radius, targetLayer);
-        foreach (Collider hit in hits)
-        {
-            Vector3 targetPos = hit.transform.position;
-            targetPos.y = transform.position.y;
-            Vector3 dir = (targetPos - transform.position).normalized;
-            float dot = Vector3.Dot(transform.forward, dir);
-            float cos = Mathf.Cos(angle * 0.5f * Mathf.Deg2Rad); //在角色前方的扇形区域进行碰撞体检测
-            if (dot >= cos)
-            {
-                result.Add(hit);
-            }
-        }
+    //private List<Collider> DetectTargets()
+    //{
+    //    List<Collider> result = new List<Collider>();
 
-        return result;
-    }
+    //    Collider[] hits = Physics.OverlapSphere(transform.position, radius, targetLayer);
+    //    foreach (Collider hit in hits)
+    //    {
+    //        Vector3 targetPos = hit.transform.position;
+    //        targetPos.y = transform.position.y;
+    //        Vector3 dir = (targetPos - transform.position).normalized;
+    //        float dot = Vector3.Dot(transform.forward, dir);
+    //        float cos = Mathf.Cos(angle * 0.5f * Mathf.Deg2Rad); //在角色前方的扇形区域进行碰撞体检测
+    //        if (dot >= cos)
+    //        {
+    //            result.Add(hit);
+    //        }
+    //    }
+
+    //    return result;
+    //}
 
     public void OpenComboWindow()
     {
