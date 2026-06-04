@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public PlayerMovement Movement { get; private set; }
     public Health Health { get; private set; }
     public Character Character { get; private set; }
+    public Rigidbody Rigidbody { get; private set; }
 
     private void Awake()
     {
@@ -15,5 +16,6 @@ public class Player : MonoBehaviour
         Movement = GetComponent<PlayerMovement>();
         Health = GetComponent<Health>();
         Character = GetComponent<Character>();
+        Rigidbody = GetComponent<Rigidbody>();
     }
 }

@@ -27,12 +27,16 @@ public class PlayerMovement : MonoBehaviour
 
     private LockOnSystem lockOnSystem;
 
+    private PlayerFSM fsm;
+
     private void Start()
     {
         lockOnSystem = GetComponent<LockOnSystem>();
         character = GetComponent<Character>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+        fsm = GetComponent<PlayerFSM>();
+
         if (Camera.main != null)
         {
             cameraTransform = Camera.main.transform;
@@ -51,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnMove(InputValue value)
     {
+        fsm.ChangeState(PlayerStateType.Locomotion);
         moveInput = value.Get<Vector2>();
     }
 
@@ -62,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayer()
     {
-        if (character.IsAttacking) return;
+        if (fsm.CurrentStateType != PlayerStateType.Locomotion) return;
 
         if (lockOnSystem != null && lockOnSystem.IsLocked)
         {
@@ -162,7 +167,7 @@ public class PlayerMovement : MonoBehaviour
     //攻击时自动转向
     public void RotateToAttackTarget(List<Collider> targets)
     {
-        if (!character.IsAttacking) return;
+        
 
         Transform target = null;
 
@@ -199,6 +204,6 @@ public class PlayerMovement : MonoBehaviour
 
     public bool CanAttack()
     {
-        return isGrounded && !character.IsAttacking;
+        return isGrounded;
     }
 }

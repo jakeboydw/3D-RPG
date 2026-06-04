@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a40cc502d1f619f40b377786871d480e, type: 3}
-  m_Name: Attack1
+  m_Name: Attack3
   m_EditorClassIdentifier: Assembly-CSharp::AttackData
   damage: 20
-  attackAnimation: {fileID: 7400000, guid: 2bdf1aacd7ff5e745ad5d0ccb3f5dfb7, type: 2}
-  nextAttack: {fileID: 11400000, guid: 1624b7c69e7ec5d428cccf6a7a9b9148, type: 2}
+  attackAnimation: {fileID: 7400000, guid: 51c08e85d98666347aea143a4e05de7b, type: 2}
+  nextAttack: {fileID: 11400000, guid: 1635ba62b6cbdeb4fb7b80df5cec1531, type: 2}

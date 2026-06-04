@@ -12,6 +12,8 @@ public class PlayerFSM : MonoBehaviour
 {
     public Player Player { get; private set; }
 
+    public PlayerStateType CurrentStateType { get; private set; }
+
     private Dictionary<PlayerStateType, PlayerState> states = new();
     private PlayerState currentState;
 
@@ -45,6 +47,8 @@ public class PlayerFSM : MonoBehaviour
     public void ChangeState(PlayerStateType state)
     {
         if (!states.ContainsKey(state)) return;
+
+        CurrentStateType = state;
         if (currentState != null)
         {
             currentState.OnExit();

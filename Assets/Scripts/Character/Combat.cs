@@ -14,97 +14,48 @@ public class Combat : MonoBehaviour
     public float angle = 90f;
     public LayerMask targetLayer;
 
+    public List<AttackData> attacks = new List<AttackData>();
+    public AttackData firstAttack;
     public AttackData CurrentAttack { get; private set; }
 
     private float attackForce;
 
-    private int comboIndex = 0;
     private bool comboQueued = false;
-    private bool canQueueCombo = false;
+    private bool comboWindowOpen = false;
 
     private Animator anim;
     private Character character;
     private PlayerMovement movementController;
+    private PlayerFSM fsm;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
         character = GetComponent<Character>();
         movementController = GetComponent<PlayerMovement>();
+        fsm = GetComponent<PlayerFSM>();
+
         attackForce = character.Stats.GetStat(StatType.Attack).Value;
     }
 
     private void Update()
     {
         attackForce = character.Stats.GetStat(StatType.Attack).Value;
-
-        UpdateComboWindow();
-        ProcessComboQueue();
-        ResetCombo();
     }
 
     public void OnAttack()
     {
-        //第一段攻击
-        if (!character.IsAttacking)
+        if (fsm.CurrentStateType != PlayerStateType.Attack)
         {
-            StartCombo();
+            CurrentAttack = firstAttack;
+            fsm.ChangeState(PlayerStateType.Attack);
             return;
         }
 
-        if (canQueueCombo)
+        if (comboWindowOpen)
         {
             comboQueued = true;
         }
-    }
-
-    private void UpdateComboWindow()
-    {
-        AnimatorStateInfo state = anim.GetCurrentAnimatorStateInfo(0);
-
-        if (!character.IsAttacking)
-        {
-            canQueueCombo = false;
-            return;
-        }
-
-        float progress = state.normalizedTime % 1f;
-        canQueueCombo = progress >= 0.3f && progress <= 0.9f;
-    }
-
-    private void ProcessComboQueue()
-    {
-        if (!comboQueued) return;
-
-        AnimatorStateInfo state = anim.GetCurrentAnimatorStateInfo(0);
-        float progress = state.normalizedTime % 1f;
-
-        if (progress < 0.9f) return;
-
-        comboIndex++;
-        comboIndex = Mathf.Clamp(comboIndex, 1, 3);
-        anim.SetInteger("ComboIndex", comboIndex);
-    }
-
-    private void ResetCombo()
-    {
-        AnimatorStateInfo state = anim.GetCurrentAnimatorStateInfo(0);
-        float progress = state.normalizedTime % 1f;
-
-        if (progress > 0.98f && !comboQueued)
-        {
-            EndCombo();
-        }
-    }
-
-    private void StartCombo()
-    {
-        comboIndex = 1;
-
-        character.StartAttack();
-
-        anim.SetInteger("ComboIndex", comboIndex);
-        anim.SetTrigger("Attack");
     }
 
     public void AttackHit()
@@ -157,14 +108,33 @@ public class Combat : MonoBehaviour
         return result;
     }
 
+    public void OpenComboWindow()
+    {
+        comboWindowOpen = true;
+    }
+
+    public void ProcessCombo()
+    {
+        comboWindowOpen = false;
+
+        if (comboQueued && CurrentAttack.nextAttack != null)
+        {
+            comboQueued = false;
+            CurrentAttack = CurrentAttack.nextAttack;
+            fsm.ChangeState(PlayerStateType.Attack);
+            return;
+        }
+
+        EndCombo();
+    }
+
     public void EndCombo()
     {
         comboQueued = false;
-        canQueueCombo = false;
+        comboWindowOpen = false;
 
-        comboIndex = 0;
-        anim.SetInteger("ComboIndex", comboIndex);
+        CurrentAttack = null;
 
-        character.EndAttack();
+        fsm.ChangeState(PlayerStateType.Locomotion);
     }
 }
