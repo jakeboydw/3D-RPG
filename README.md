@@ -41,3 +41,6 @@ Unity开发的RPG游戏。
 
 战斗锁定 
 <img width="761" height="478" alt="screenshots" src="https://github.com/user-attachments/assets/09cefb4a-acc4-45bf-9b00-b63e5b544269" />
+
+战斗连击
+<img width="766" height="480" alt="screenshots" src="https://github.com/user-attachments/assets/c0ef63fb-ec70-4043-af7e-c62db7af8675" />
